@@ -99,15 +99,47 @@ img, svg {
 }
 
 .brand-mark {
-  width: 34px;
-  height: 34px;
+  position: relative;
+  width: 38px;
+  height: 38px;
   border-radius: 8px;
-  display: grid;
-  place-items: center;
-  color: #06101d;
-  background: linear-gradient(135deg, var(--cyan), var(--blue) 55%, var(--violet));
-  box-shadow: 0 0 26px rgba(100, 168, 255, 0.44);
-  font-weight: 900;
+  display: inline-block;
+  flex: 0 0 auto;
+  overflow: hidden;
+  color: transparent;
+  font-size: 0;
+  background:
+    linear-gradient(135deg, rgba(105, 231, 255, 0.92), rgba(100, 168, 255, 0.82) 48%, rgba(187, 165, 255, 0.86)),
+    linear-gradient(180deg, rgba(255,255,255,0.32), rgba(255,255,255,0));
+  border: 1px solid rgba(221, 239, 255, 0.36);
+  box-shadow:
+    0 0 0 1px rgba(105, 231, 255, 0.12) inset,
+    0 16px 34px rgba(100, 168, 255, 0.32),
+    0 0 34px rgba(105, 231, 255, 0.28);
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 21% 80%, #06101d 0 3px, transparent 3.5px),
+    radial-gradient(circle at 50% 50%, #06101d 0 3px, transparent 3.5px),
+    radial-gradient(circle at 79% 20%, #06101d 0 3px, transparent 3.5px),
+    linear-gradient(42deg, transparent 0 35%, #06101d 36% 43%, transparent 44%),
+    linear-gradient(138deg, transparent 0 35%, #06101d 36% 43%, transparent 44%);
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 7px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.46), transparent 35%),
+    linear-gradient(315deg, rgba(5, 8, 18, 0.24), transparent 42%);
+  pointer-events: none;
 }
 
 .nav-links {
@@ -530,6 +562,7 @@ h1 {
   z-index: 2;
 }
 
+.video-frame iframe,
 .video-frame video {
   position: relative;
   z-index: 1;
